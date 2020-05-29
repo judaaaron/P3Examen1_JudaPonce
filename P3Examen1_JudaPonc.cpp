@@ -115,6 +115,7 @@ int option=0;
 				
 				}
 				cout<<" ***Listado de empleados***"<<endl;
+				cout<<"NOTA: la lista comienza en 0: "<<endl;
 				if(contrato==false){
 					for(int i=0; i< empleados.size(); i++){
 							cout <<i<<". Nombre"<< " ["<<empleados[i].getNombre()<<"], "<<"Edad"<< " ["<<empleados[i].getEdad()<<"], "<<"Nivel"<<" ["<<empleados[i].getNivel()<<"], "<<"Porcentaje de pereza"<<" ["<<empleados[i].getPereza()<<"], "<<"Porcentaje de habilidad"<<" ["<<empleados[i].getHabilidad()<<"]"<<endl;
