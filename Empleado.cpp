@@ -37,6 +37,14 @@ void Empleado::setPereza(int flojera){
 this->pereza=flojera;	
 }
 
+Empleado::Empleado(string nombre,int edad,int nivel, int pereza, int habilidad){
+this->nombre=nombre;
+this->edad=edad;
+this->nivel=nivel;
+this->pereza=pereza;
+this->habilidad=habilidad;
+}
+
 Empleado::~Empleado()
 {
 }

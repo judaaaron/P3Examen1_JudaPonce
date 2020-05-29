@@ -8,6 +8,7 @@ class Empleado
 {
 	public:
 		Empleado();
+		Empleado(string,int,int,int,int);
 		string getNombre();
 		int getEdad();
 		int getNivel();

@@ -1,4 +1,7 @@
 #include <iostream>
+#include<cstdlib>
+#include <ctime>
+#include<iomanip>
 #include "Empleado.h"
 #include "Tareas.h"
 #include <vector>
@@ -11,9 +14,28 @@ int menu();
 int main(int argc, char** argv) {
 int option=0;
 	
-	while( option != 6 ) {
+	while( option != 7 ) {
 		switch( option = menu() ){
 			case 1:{
+				string nombre;
+				int edad,nivel,habilidad, pereza;
+				cout<<" Opcion seleccionada: Contratar Empleado "<<endl;
+				cout<<" Ingrese nombre: "<<endl;
+				cin>>nombre;
+				cout<<" Ingrese edad: "<<endl;
+				cin>>edad;
+				cout<<" Ingrese nivel: "<<endl;
+				cin>>nivel;
+				while(nivel< 1 || nivel >3){
+					cout<<" Debe de ingresar un valor entre 1 y 3 "<<endl;
+					cout<<" Por favor ingrese un nuevo valor: "<<endl;
+					cin>>nivel;
+					
+				}
+				cout<<" Ingrese porcentaje de pereza: "<<endl;
+				cin>>pereza;
+				cout<< " Ingrese porcentaje de habilidad: "<<endl;
+				cin>>habilidad;
 				break;
 			}
 			
