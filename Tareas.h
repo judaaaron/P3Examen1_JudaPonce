@@ -12,13 +12,17 @@ class Tareas
 		string getDescripcion();
 		int getNivel();
 		int getCarga();
+		void setEstado(bool);
 		void setDescripcion(string);
 		void setNivel(int);
 		void setCarga(int);
+		void charge();
+		
 		~Tareas();
 	private:
 		string descripcion;
 		int nivel, carga;
+		bool estado;
 };
 
 #endif

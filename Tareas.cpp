@@ -14,6 +14,10 @@ return this->nivel;
 int Tareas::getCarga(){
 return this->carga;
 }
+
+void Tareas::setEstado(bool estado){
+	this->estado = estado;
+}
 void Tareas::setDescripcion(string descrip){
 	this->descripcion=descrip;
 }
@@ -28,6 +32,11 @@ Tareas::Tareas(string descripcion,int nivel,int carga){
 	this->descripcion=descripcion;
 	this->nivel=nivel;
 	this->carga=carga;
+	this->estado = true;
+}
+
+void Tareas::charge(){
+	this->carga--;
 }
 Tareas::~Tareas()
 {
