@@ -23,6 +23,12 @@ void Tareas:: setNivel(int levell){
 void Tareas::setCarga(int charge){
 	this->carga=charge;
 }
+
+Tareas::Tareas(string descripcion,int nivel,int carga){
+	this->descripcion=descripcion;
+	this->nivel=nivel;
+	this->carga=carga;
+}
 Tareas::~Tareas()
 {
 }

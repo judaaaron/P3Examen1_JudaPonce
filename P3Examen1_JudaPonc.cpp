@@ -9,7 +9,7 @@
 using namespace std;
 
 vector<Empleado>empleados;
-vector<Tareas> tareas;
+vector<Tareas> backlog;
 int menu();
 int main(int argc, char** argv) {
 int option=0;
@@ -36,26 +36,107 @@ int option=0;
 				cin>>pereza;
 				cout<< " Ingrese porcentaje de habilidad: "<<endl;
 				cin>>habilidad;
+				empleados.push_back(Empleado(nombre,edad,nivel,pereza,habilidad));
+				cout<<" Empleado contratado exitosamente..."<<endl;
+				cout<<endl;
 				break;
 			}
 			
 			case 2:{
+				int posicion;
+				bool contrato=false;
+				if(empleados.size()==0){
+					cout<<" No hay ninguna persona contrada hasta el momento "<<endl;
+					cout<<endl;
+					contrato=true;
 				
+				}
+				if(contrato==false){
+					for(int i=0; i< empleados.size(); i++){
+						cout << i<<". Nombre"<< " ["<<empleados[i].getNombre()<<"], "<<"Edad"<< " ["<<empleados[i].getEdad()<<"], "<<"Nivel"<<" ["<<empleados[i].getNivel()<<"], "<<"Porcentaje de pereza"<<" ["<<empleados[i].getPereza()<<"], "<<"Porcentaje de habilidad"<<" ["<<empleados[i].getHabilidad()<<"]"<<endl;
+					}
+					cout<<" Seleccione posicion del empleado a despedir, Nota la lista comienza en 0: "<<endl;
+					cin>>posicion;
+					empleados.erase(empleados.begin() + posicion);
+					cout<<" Empleado ha sido eliminado exitosamente"<<endl;
+					cout<<endl;
+			}
 				break;
 			}
 			
 			case 3:{
+				bool contrato=false;
+				if(empleados.size()==0){
+					cout<<" No hay ninguna persona contrada hasta el momento "<<endl;
+					cout<<endl;
+					contrato=true;
+				
+				}
+				cout<<" ***Listado de empleados***"<<endl;
+				if(contrato==false){
+					for(int i=0; i< empleados.size(); i++){
+							cout <<i<<". Nombre"<< " ["<<empleados[i].getNombre()<<"], "<<"Edad"<< " ["<<empleados[i].getEdad()<<"], "<<"Nivel"<<" ["<<empleados[i].getNivel()<<"], "<<"Porcentaje de pereza"<<" ["<<empleados[i].getPereza()<<"], "<<"Porcentaje de habilidad"<<" ["<<empleados[i].getHabilidad()<<"]"<<endl;
+					}
+					
+				}
 				
 				break;
 			}
 			
 			case 4:{
+				string descripcion;
+				int nivel,carga;
+				bool employers=false;
+				if(empleados.size()==0){
+					cout<<" No se pueden crear tareas hasta que hayan personas contratadas "<<endl;
+					employers=true;
+				}else{
+					cout<<" Opcion seleccionada: Crear Tarea "<<endl;
+					cout<<" Ingrese Descripcion: "<<endl;
+					cin>> descripcion;
+					cout<<" Ingrese nivel: "<<endl;
+					cin>>nivel;
+					while(nivel < 1 || nivel > 3){
+						cout<<" Debe de ingresar un valor entre 1 y 3 "<<endl;
+						cout<<" Por favor ingrese un nuevo valor: "<<endl;
+						cin>>nivel;
+					}
+					cout<<" Ingrese carga: "<<endl;
+					cin>>carga;
+					while(carga<= 0){
+						cout<<" La carga no debe tener valores negativos"<<endl;
+						cout<<" Por favor ingrese un nuevo valor: "<<endl;
+						cin>>carga;
+					}
+					backlog.push_back(Tareas(descripcion,nivel,carga));
+					cout<<" Tareas ha sido creada exitosamente... "<<endl;
+					cout<<endl;
+				}
+				
 				
 				break;
 			}
 			
 			case 5:{
+				bool homeworks=false;
+				bool employers=false;
+				if(empleados.size()==0){
+					cout<<" No hay ninguna persona contratada hasta el momento "<<endl;
+					employers=true;
+				}
+				if(backlog.size()==0){
+					cout<<" No hay ninguna tarea creada hasta el momento "<<endl;
+					cout<<endl;
+					homeworks=true;
 				
+				}
+				cout<<" ***Listado de tareas***"<<endl;
+				if(homeworks==false && employers==false){
+					for(int i=0; i< empleados.size(); i++){
+							cout <<i<<". Descripcion"<< " ["<<backlog[i].getDescripcion()<<"], "<<"Nivel"<< " ["<<backlog[i].getNivel()<<"], "<<"Carga"<<" ["<<backlog[i].getCarga()<<"]"<<endl;
+					}
+					
+				}
 				break;
 			}
 			

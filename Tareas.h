@@ -8,6 +8,7 @@ class Tareas
 {
 	public:
 		Tareas();
+		Tareas(string,int,int);
 		string getDescripcion();
 		int getNivel();
 		int getCarga();
