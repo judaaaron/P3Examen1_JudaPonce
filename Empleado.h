@@ -23,6 +23,7 @@ class Empleado
 	private:
 		string nombre;
 		int edad, nivel, habilidad, pereza;
+		
 };
 
 #endif
