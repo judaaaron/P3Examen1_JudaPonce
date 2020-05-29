@@ -92,20 +92,20 @@ int option=0;
 					employers=true;
 				}else{
 					cout<<" Opcion seleccionada: Crear Tarea "<<endl;
-					cout<<" Ingrese Descripcion: "<<endl;
+					cout<<"Ingrese Descripcion: "<<endl;
 					cin>> descripcion;
-					cout<<" Ingrese nivel: "<<endl;
+					cout<<"Ingrese nivel: "<<endl;
 					cin>>nivel;
 					while(nivel < 1 || nivel > 3){
-						cout<<" Debe de ingresar un valor entre 1 y 3 "<<endl;
-						cout<<" Por favor ingrese un nuevo valor: "<<endl;
+						cout<<"Debe de ingresar un valor entre 1 y 3 "<<endl;
+						cout<<"Por favor ingrese un nuevo valor: "<<endl;
 						cin>>nivel;
 					}
-					cout<<" Ingrese carga: "<<endl;
+					cout<<"Ingrese carga: "<<endl;
 					cin>>carga;
 					while(carga<= 0){
-						cout<<" La carga no debe tener valores negativos"<<endl;
-						cout<<" Por favor ingrese un nuevo valor: "<<endl;
+						cout<<"La carga no debe tener valores negativos"<<endl;
+						cout<<"Por favor ingrese un nuevo valor: "<<endl;
 						cin>>carga;
 					}
 					backlog.push_back(Tareas(descripcion,nivel,carga));
@@ -132,7 +132,7 @@ int option=0;
 				}
 				cout<<" ***Listado de tareas***"<<endl;
 				if(homeworks==false && employers==false){
-					for(int i=0; i< empleados.size(); i++){
+					for(int i=0; i< backlog.size(); i++){
 							cout <<i<<". Descripcion"<< " ["<<backlog[i].getDescripcion()<<"], "<<"Nivel"<< " ["<<backlog[i].getNivel()<<"], "<<"Carga"<<" ["<<backlog[i].getCarga()<<"]"<<endl;
 					}
 					
@@ -141,6 +141,15 @@ int option=0;
 			}
 			
 			case 6:{
+				int formula=0, dias;
+				
+				for(int i=0; i< backlog.size(); i++){
+					formula+=backlog[i].getCarga();
+				
+				}
+	
+				dias=formula+(formula*0.20);
+				cout<<"Dias para terminar el proyecto: "<<dias;
 				
 				break;
 			}
