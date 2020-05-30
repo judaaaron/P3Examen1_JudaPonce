@@ -211,10 +211,7 @@ int option=0;
 					cin>>seleccion;
 					switch(seleccion){
 						case 1:{
-							logrado = 0;
-							ejecucionTarea = 0; 
-							flojeras = 0; 
-							failed = 0;
+							logrado = 0;ejecucionTarea = 0; flojeras = 0; failed = 0;
 							for(int controlEmpleados=0; controlEmpleados< empleados.size(); controlEmpleados++){
 								for(int controlTareas=0; controlTareas< backlog.size(); controlTareas++){
 									if(empleados[controlEmpleados].getNivel()>= backlog[controlEmpleados].getNivel()){
